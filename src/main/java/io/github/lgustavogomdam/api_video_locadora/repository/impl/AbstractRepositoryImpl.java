@@ -11,6 +11,8 @@ import org.springframework.data.repository.NoRepositoryBean;
 
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @NoRepositoryBean
@@ -46,4 +48,7 @@ public abstract class AbstractRepositoryImpl<E,K,M,MP extends GenericMapper<M,E>
     public void softDelete(M model) {
         jpaRepository.delete(mapper.fromModel(model));
     }
+
+//    public List<M> findByAttribute(HashMap<String, Object> map){}
+
 }

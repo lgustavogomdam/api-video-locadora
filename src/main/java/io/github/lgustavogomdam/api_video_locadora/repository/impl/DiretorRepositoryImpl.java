@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public class DiretorRepositoryImpl extends AbstractRepositoryImpl<DiretorEntity,Long, DiretorModel, DiretorMapper, DiretorJpaRepository> implements DiretorRepository {
 
-    @Autowired
+
     public DiretorRepositoryImpl(DiretorJpaRepository jpaRepository, DiretorMapper mapper) {
         super(jpaRepository, mapper);
     }

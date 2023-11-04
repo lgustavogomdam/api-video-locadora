@@ -2,14 +2,14 @@ package io.github.lgustavogomdam.api_video_locadora.repository.jpa;
 
 import io.github.lgustavogomdam.api_video_locadora.model.entity.AtorEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface AtorJPARepository extends JpaRepository<AtorEntity, Long>{
+@Repository
+public interface AtorJpaRepository extends JpaRepository<AtorEntity, Long>{
     @Query("SELECT a FROM AtorEntity a WHERE a.id = :idAtor")
     AtorEntity findFirstIn(@Param("idAtor") Long idAtor);
 
