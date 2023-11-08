@@ -1,38 +1,34 @@
-package io.github.lgustavogomdam.api_video_locadora.model.dto;
+package io.github.lgustavogomdam.api_video_locadora.model.entity;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 
+import jakarta.persistence.*;
 import java.io.Serializable;
 
-public class AtorModel implements Serializable {
+@Entity
+@Table(name = "ator")
+public class ActorEntity implements Serializable {
 
     private static final Long SerialVersionUID = 1L;
-    @NotNull
-    @NotEmpty
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
-    @NotBlank
+
+    @Column(name = "primeiro_nome", length = 50, nullable = false)
     private String primeiroNome;
-    @NotNull
-    @NotBlank
+
+    @Column(name = "ultimo_nome", length = 50, nullable = false)
     private String ultimoNome;
 
-    public AtorModel() {
-    }
-
-    public AtorModel(String primeiroNome, String ultimoNome) {
-        this.primeiroNome = primeiroNome;
-        this.ultimoNome = ultimoNome;
-    }
-
-    public Long getId() {
-        return this.id;
+    public ActorEntity() {
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getId() {
+        return this.id;
     }
 
     public String getPrimeiroNome() {

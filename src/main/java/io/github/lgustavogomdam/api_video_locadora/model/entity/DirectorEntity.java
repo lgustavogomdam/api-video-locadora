@@ -2,14 +2,13 @@ package io.github.lgustavogomdam.api_video_locadora.model.entity;
 
 
 import jakarta.persistence.*;
+
 import java.io.Serializable;
 
 @Entity
-@Table(name = "ator")
-public class AtorEntity implements Serializable {
-
+@Table(name = "diretor")
+public class DirectorEntity implements Serializable {
     private static final Long SerialVersionUID = 1L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,7 +19,7 @@ public class AtorEntity implements Serializable {
     @Column(name = "ultimo_nome", length = 50, nullable = false)
     private String ultimoNome;
 
-    public AtorEntity() {
+    public DirectorEntity() {
     }
 
     public void setId(Long id) {

@@ -1,33 +1,38 @@
-package io.github.lgustavogomdam.api_video_locadora.model.entity;
+package io.github.lgustavogomdam.api_video_locadora.model.dto;
 
-
-import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 
-@Entity
-@Table(name = "diretor")
-public class DiretorEntity implements Serializable {
+public class DirectorModel implements Serializable {
+
     private static final Long SerialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull
+    @NotEmpty
     private Long id;
-
-    @Column(name = "primeiro_nome", length = 50, nullable = false)
+    @NotNull
+    @NotBlank
     private String primeiroNome;
-
-    @Column(name = "ultimo_nome", length = 50, nullable = false)
+    @NotNull
+    @NotBlank
     private String ultimoNome;
 
-    public DiretorEntity() {
+    public DirectorModel() {
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public DirectorModel(String primeiroNome, String ultimoNome) {
+        this.primeiroNome = primeiroNome;
+        this.ultimoNome = ultimoNome;
     }
 
     public Long getId() {
         return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getPrimeiroNome() {

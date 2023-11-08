@@ -6,7 +6,7 @@ import java.sql.Date;
 
 @Entity
 @Table(name = "classe")
-public class ClasseEntity implements Serializable {
+public class ClassEntity implements Serializable {
     private static final Long SerialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,13 +15,13 @@ public class ClasseEntity implements Serializable {
     private String nome;
     @Column(name = "valor", nullable = false)
     private Double valor;
-    @Column(name = "data_devolucao", length = 50, nullable = false)
+    @Column(name = "data_devolucao", length = 50)
     private Date dataDevolucao;
 
-    public ClasseEntity() {
+    public ClassEntity() {
     }
 
-    public ClasseEntity(String nome, Double valor, Date dataDevolucao) {
+    public ClassEntity(String nome, Double valor, Date dataDevolucao) {
         this.nome = nome;
         this.valor = valor;
         this.dataDevolucao = dataDevolucao;

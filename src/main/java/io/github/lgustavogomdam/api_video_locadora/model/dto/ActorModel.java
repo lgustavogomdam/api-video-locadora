@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 
-public class DiretorModel implements Serializable {
+public class ActorModel implements Serializable {
 
     private static final Long SerialVersionUID = 1L;
     @NotNull
@@ -19,10 +19,10 @@ public class DiretorModel implements Serializable {
     @NotBlank
     private String ultimoNome;
 
-    public DiretorModel() {
+    public ActorModel() {
     }
 
-    public DiretorModel(String primeiroNome, String ultimoNome) {
+    public ActorModel(String primeiroNome, String ultimoNome) {
         this.primeiroNome = primeiroNome;
         this.ultimoNome = ultimoNome;
     }

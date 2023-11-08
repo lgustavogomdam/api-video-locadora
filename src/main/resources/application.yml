@@ -12,3 +12,7 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: false
+#springdoc:
+#  pathsToMatch: api/**/**
+#  swagger-ui:
+#    use-root-path: true

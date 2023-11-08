@@ -1,15 +1,11 @@
 package io.github.lgustavogomdam.api_video_locadora.controller;
 
-import io.github.lgustavogomdam.api_video_locadora.model.dto.AtorModel;
-import io.github.lgustavogomdam.api_video_locadora.repository.intf.GenericRepository;
 import io.github.lgustavogomdam.api_video_locadora.service.AbstractService;
-import io.github.lgustavogomdam.api_video_locadora.service.AtorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public abstract class AbstractAPIController<M,K,S extends AbstractService>{

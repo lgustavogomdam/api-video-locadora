@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotNull;
 
 import java.sql.Date;
 
-public class ClasseModel {
+public class ClassModel {
     private static final Long SerialVersionUID = 1L;
 
     @NotNull
@@ -13,13 +13,12 @@ public class ClasseModel {
     private String nome;
     @NotNull
     private Double valor;
-    @NotNull
     private Date dataDevolucao;
 
-    public ClasseModel() {
+    public ClassModel() {
     }
 
-    public ClasseModel(String nome, Double valor, Date dataDevolucao) {
+    public ClassModel(String nome, Double valor, Date dataDevolucao) {
         this.nome = nome;
         this.valor = valor;
         this.dataDevolucao = dataDevolucao;

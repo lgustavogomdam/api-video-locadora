@@ -3,11 +3,14 @@ package io.github.lgustavogomdam.api_video_locadora.controller;
 
 import io.github.lgustavogomdam.api_video_locadora.model.dto.ItemModel;
 import io.github.lgustavogomdam.api_video_locadora.service.ItemService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("api/item")
+@Tag(name = "Item", description = "Endpoints for managing Item")
 public class ItemAPIController extends AbstractAPIController<ItemModel,Long, ItemService> {
 
     @Override
