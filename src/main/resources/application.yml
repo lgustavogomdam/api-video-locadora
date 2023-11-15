@@ -12,7 +12,10 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: false
-#springdoc:
-#  pathsToMatch: api/**/**
-#  swagger-ui:
-#    use-root-path: true
+springdoc:
+  #Especifica os caminhos que o Springdoc deve considerar ao gerar a documentação Swagger.
+  #Neste caso, parece estar configurado para incluir todos os caminhos que começam com "/api/".
+  pathsToMatch: /api/**/**
+  swagger-ui:
+    # Indica se a interface do usuário do Swagger deve ser acessada a partir do caminho raiz do aplicativo ou não.
+    use-root-path: true

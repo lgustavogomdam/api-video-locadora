@@ -12,7 +12,7 @@ public class ActorEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idActor;
 
     @Column(name = "primeiro_nome", length = 50, nullable = false)
     private String primeiroNome;
@@ -24,11 +24,11 @@ public class ActorEntity implements Serializable {
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.idActor = id;
     }
 
     public Long getId() {
-        return this.id;
+        return this.idActor;
     }
 
     public String getPrimeiroNome() {

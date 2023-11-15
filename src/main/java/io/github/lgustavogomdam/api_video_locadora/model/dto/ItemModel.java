@@ -20,8 +20,7 @@ public class ItemModel implements Serializable {
     private Integer numero_de_serie;
 
     @NotNull
-    @NotBlank
-    private String titulo;
+    private TitleModel titulo;
 
     @NotNull
     private Date data_aquisicao;
@@ -46,11 +45,11 @@ public class ItemModel implements Serializable {
         this.numero_de_serie = numero_de_serie;
     }
 
-    public String getTitulo() {
+    public TitleModel getTitulo() {
         return titulo;
     }
 
-    public void setTitulo(String titulo) {
+    public void setTitulo(TitleModel titulo) {
         this.titulo = titulo;
     }
 

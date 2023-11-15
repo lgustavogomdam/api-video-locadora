@@ -39,7 +39,7 @@ public class ItemAPIController extends AbstractAPIController<ItemModel,Long, Ite
         this.service.softDelete(id);
         return new ResponseEntity<String>(String.format(
                 "O Item %s foi deletado com sucesso!",
-                model.getTitulo().toUpperCase()
+                model.getNumero_de_serie().toString().toUpperCase()
         ),HttpStatus.OK);
     }
 }

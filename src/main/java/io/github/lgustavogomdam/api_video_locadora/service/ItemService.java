@@ -10,8 +10,6 @@ import java.util.logging.Logger;
 @Service
 public class ItemService extends AbstractService<ItemModel,Long, ItemRepository> {
 
-//    private Logger logger = Logger.getLogger(ItemService.class.getName());
-
     @Override
     public void saveValidation(ItemModel model) throws ElementoJaCadastradoException {
 

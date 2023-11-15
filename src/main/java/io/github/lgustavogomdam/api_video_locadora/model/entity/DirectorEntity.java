@@ -11,7 +11,7 @@ public class DirectorEntity implements Serializable {
     private static final Long SerialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idDirector;
 
     @Column(name = "primeiro_nome", length = 50, nullable = false)
     private String primeiroNome;
@@ -23,11 +23,11 @@ public class DirectorEntity implements Serializable {
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.idDirector = id;
     }
 
     public Long getId() {
-        return this.id;
+        return this.idDirector;
     }
 
     public String getPrimeiroNome() {

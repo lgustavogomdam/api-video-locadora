@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface ClasseJpaRepository extends JpaRepository<ClassEntity,Long> {
 
-    @Query("SELECT c FROM ClassEntity c WHERE c.id = :idClasse")
+    @Query("SELECT c FROM ClassEntity c WHERE c.idClass = :idClasse")
     ClassEntity findFirstIn(@Param("idClasse") Long idClasse);
 
     @Query("SELECT C FROM ClassEntity C WHERE C.nome = :nomeClasse")

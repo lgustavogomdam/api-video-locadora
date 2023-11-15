@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 @Service
 public abstract class AbstractService<M, K, R extends GenericRepository<M,K>> {
 
-    private Logger logger = Logger.getLogger(this.getClass().getName());
+    protected Logger logger = Logger.getLogger(this.getClass().getName());
 
     @Autowired
     protected R repository;

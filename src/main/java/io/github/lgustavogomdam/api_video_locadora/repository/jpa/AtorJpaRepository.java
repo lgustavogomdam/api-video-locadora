@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface AtorJpaRepository extends JpaRepository<ActorEntity, Long>{
-    @Query("SELECT a FROM ActorEntity a WHERE a.id = :idAtor")
+    @Query("SELECT a FROM ActorEntity a WHERE a.idActor = :idAtor")
     ActorEntity findFirstIn(@Param("idAtor") Long idAtor);
 
     @Query("SELECT A FROM ActorEntity A WHERE A.primeiroNome = :primeiroNomeAtor AND A.ultimoNome = :ultimoNomeAtor")

@@ -26,11 +26,20 @@ public class ActorAPIController extends AbstractAPIController<ActorModel,Long, A
     @GetMapping
     @Operation(summary = "Find all actors", description = "Find all actors", tags = {"Actor"},
         responses = {
-            @ApiResponse(description = "Success", responseCode = "200",
-                content = {
-                    @Content(mediaType = "application/json",
-                        array = @ArraySchema(
-                            schema = @Schema(implementation = ActorModel.class)))})
+            //Response Success
+            @ApiResponse(description = "Success", responseCode = "200", content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ActorModel.class)))}),
+
+            //Response Bad Request
+            @ApiResponse(description = "Bad Request", responseCode = "400", content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ActorModel.class)))}),
+
+            //Response Unauthorized
+            @ApiResponse(description = "Unauthorized", responseCode = "401", content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ActorModel.class)))}),
+
+            //Response Not Found
+            @ApiResponse(description = "Not Found", responseCode = "404", content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ActorModel.class)))}),
+
+            //Response Internal Error
+            @ApiResponse(description = "Internal Error", responseCode = "500", content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ActorModel.class)))})
         })
     public List<ActorModel> findAll() {
         return super.findAll();
@@ -38,12 +47,49 @@ public class ActorAPIController extends AbstractAPIController<ActorModel,Long, A
 
     @Override
     @GetMapping("{id}")
+    @Operation(summary = "Find actor", description = "Find actor", tags = {"Actor"},
+        responses = {
+            //Response Success
+            @ApiResponse(description = "Success", responseCode = "200", content = { @Content(mediaType = "application/json",schema = @Schema(implementation = ActorModel.class))}),
+
+            //Response No Content
+            @ApiResponse(description = "No Content", responseCode = "204", content = { @Content(mediaType = "application/json",schema = @Schema(implementation = ActorModel.class))}),
+
+            //Response Bad Request
+            @ApiResponse(description = "Bad Request", responseCode = "400", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ActorModel.class))}),
+
+            //Response Unauthorized
+            @ApiResponse(description = "Unauthorized", responseCode = "401", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ActorModel.class))}),
+
+            //Response Not Found
+            @ApiResponse(description = "Not Found", responseCode = "404", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ActorModel.class))}),
+
+            //Response Internal Error
+            @ApiResponse(description = "Internal Error", responseCode = "500", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ActorModel.class))})
+        })
     public ResponseEntity<ActorModel> findById(@PathVariable Long id) {
         return super.findById(id);
     }
 
     @Override
-    @PostMapping
+    @PostMapping()
+    @Operation(summary = "Add a new actor", description = "Add new actor by passing in a JSON", tags = {"Actor"},
+        responses = {
+            //Response Success
+            @ApiResponse(description = "Success", responseCode = "200", content = { @Content(mediaType = "application/json",schema = @Schema(implementation = ActorModel.class))}),
+
+            //Response Bad Request
+            @ApiResponse(description = "Bad Request", responseCode = "400", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ActorModel.class))}),
+
+            //Response Unauthorized
+            @ApiResponse(description = "Unauthorized", responseCode = "401", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ActorModel.class))}),
+
+            //Response Not Found
+            @ApiResponse(description = "Not Found", responseCode = "404", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ActorModel.class))}),
+
+            //Response Internal Error
+            @ApiResponse(description = "Internal Error", responseCode = "500", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ActorModel.class))})
+        })
     public ResponseEntity<ActorModel> create(@RequestBody ActorModel model) {
 
         if(model.getId() != null)
@@ -53,7 +99,27 @@ public class ActorAPIController extends AbstractAPIController<ActorModel,Long, A
     }
 
     @Override
-    @PutMapping
+    @PutMapping()
+    @Operation(summary = "Update a actor", description = "Update properties of actor by passing in a JSON", tags = {"Actor"},
+        responses = {
+            //Response Success
+            @ApiResponse(description = "Success", responseCode = "200", content = { @Content(mediaType = "application/json",schema = @Schema(implementation = ActorModel.class))}),
+
+            //Response No Content
+            @ApiResponse(description = "No Content", responseCode = "204", content = { @Content(mediaType = "application/json",schema = @Schema(implementation = ActorModel.class))}),
+
+            //Response Bad Request
+            @ApiResponse(description = "Bad Request", responseCode = "400", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ActorModel.class))}),
+
+            //Response Unauthorized
+            @ApiResponse(description = "Unauthorized", responseCode = "401", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ActorModel.class))}),
+
+            //Response Not Found
+            @ApiResponse(description = "Not Found", responseCode = "404", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ActorModel.class))}),
+
+            //Response Internal Error
+            @ApiResponse(description = "Internal Error", responseCode = "500", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ActorModel.class))})
+        })
     public ResponseEntity<ActorModel> update(@RequestBody ActorModel model) {
 
         if (model.getId() == null)
@@ -63,13 +129,27 @@ public class ActorAPIController extends AbstractAPIController<ActorModel,Long, A
     }
 
     @Override
-    public ResponseEntity<String> delete(@PathVariable Long id) {
+    @DeleteMapping("{id}")
+    @Operation(summary = "Delete a actor", description = "Delete a actor by passing ID in URL", tags = {"Actor"},
+        responses = {
+            //Response No Content
+            @ApiResponse(description = "No Content", responseCode = "204", content = { @Content(mediaType = "application/json")}),
+
+            //Response Bad Request
+            @ApiResponse(description = "Bad Request", responseCode = "400", content = { @Content(mediaType = "application/json")}),
+
+            //Response Unauthorized
+            @ApiResponse(description = "Unauthorized", responseCode = "401", content = { @Content(mediaType = "application/json")}),
+
+            //Response Not Found
+            @ApiResponse(description = "Not Found", responseCode = "404", content = { @Content(mediaType = "application/json")}),
+
+            //Response Internal Error
+            @ApiResponse(description = "Internal Error", responseCode = "500", content = { @Content(mediaType = "application/json")})
+        })
+    public ResponseEntity delete(@PathVariable Long id) {
         ActorModel model = this.service.findById(id);
         this.service.softDelete(id);
-        return new ResponseEntity<String>(String.format(
-                "O ator %s %s foi deletado com sucesso!",
-                model.getPrimeiroNome().toUpperCase(),
-                model.getUltimoNome().toUpperCase()
-        ),HttpStatus.OK);
+        return ResponseEntity.noContent().build();
     }
 }
