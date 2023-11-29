@@ -15,8 +15,8 @@ public class ItemRepositoryImpl extends AbstractRepositoryImpl<ItemEntity,Long, 
     }
 
     @Override
-    public ItemModel findFirstIn(Long idItem) {
-        ItemModel model = mapper.toModel(this.jpaRepository.findFirstIn(idItem));
+    public ItemModel findFirstIn(Long id) {
+        ItemModel model = mapper.toModel(this.jpaRepository.findFirstIn(id));
         return model;
     }
 }

@@ -22,8 +22,8 @@ public class ClassRepositoryImpl extends
     }
 
     @Override
-    public ClassModel findFirstIn(Long idClasse) {
-        ClassModel model = mapper.toModel(this.jpaRepository.findFirstIn(idClasse));
+    public ClassModel findFirstIn(Long id) {
+        ClassModel model = mapper.toModel(this.jpaRepository.findFirstIn(id));
         return model;
     }
 

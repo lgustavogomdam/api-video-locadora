@@ -19,7 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/class")
-@Tag(name = "Classe", description = "Endpoints for managing Classe")
+@Tag(name = "Class", description = "Endpoints for managing Class")
 public class ClassAPIController extends AbstractAPIController<ClassModel,Long, ClassService>{
 
     @Override

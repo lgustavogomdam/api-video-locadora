@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ItemJpaRepository extends JpaRepository<ItemEntity,Long> {
 
-    @Query("SELECT a FROM ItemEntity a WHERE a.idItem = :idItem")
-    ItemEntity findFirstIn(@Param("idItem") Long idItem);
+    @Query("SELECT a FROM ItemEntity a WHERE a.id = :id")
+    ItemEntity findFirstIn(@Param("id") Long id);
 }

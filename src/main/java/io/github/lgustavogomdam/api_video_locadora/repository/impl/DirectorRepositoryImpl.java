@@ -23,8 +23,8 @@ public class DirectorRepositoryImpl extends AbstractRepositoryImpl<DirectorEntit
     }
 
     @Override
-    public DirectorModel findFirstIn(Long idDiretor) {
-        DirectorModel model = mapper.toModel(this.jpaRepository.findFirstIn(idDiretor));
+    public DirectorModel findFirstIn(Long id) {
+        DirectorModel model = mapper.toModel(this.jpaRepository.findFirstIn(id));
         return model;
     }
 

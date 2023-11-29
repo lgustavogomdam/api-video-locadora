@@ -1,6 +1,7 @@
 package io.github.lgustavogomdam.api_video_locadora.model.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
@@ -10,6 +11,7 @@ public class TitleModel implements Serializable {
     private static final Long SerialVersionUID = 1L;
 
     @NotNull
+    @NotEmpty
     private Long id;
 
     @NotNull

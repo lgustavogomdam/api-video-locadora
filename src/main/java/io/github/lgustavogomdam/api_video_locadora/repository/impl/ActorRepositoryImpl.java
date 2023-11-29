@@ -22,8 +22,8 @@ public class ActorRepositoryImpl extends AbstractRepositoryImpl<ActorEntity,Long
     }
 
     @Override
-    public ActorModel findFirstIn(Long idAtor) {
-        ActorModel model = mapper.toModel(this.jpaRepository.findFirstIn(idAtor));
+    public ActorModel findFirstIn(Long id) {
+        ActorModel model = mapper.toModel(this.jpaRepository.findFirstIn(id));
         return model;
     }
 

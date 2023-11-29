@@ -1,8 +1,6 @@
 package io.github.lgustavogomdam.api_video_locadora.model.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 
@@ -14,7 +12,7 @@ public class TitleEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idTitle;
+    private Long id;
 
     @Column(name = "nome", length = 300, nullable = false)
     private String nome;
@@ -28,24 +26,24 @@ public class TitleEntity implements Serializable {
     @Column(name = "categoria", length = 300, nullable = false)
     private String categoria;
 
-    @ManyToOne
-    @JoinColumn(name = "idActor")
+    @ManyToOne()
+    @JoinColumn(name = "id_actor", referencedColumnName = "id")
     private ActorEntity actor;
 
-    @ManyToOne
-    @JoinColumn(name = "idDirector")
+    @ManyToOne()
+    @JoinColumn(name = "id_director", referencedColumnName="id")
     private DirectorEntity director;
 
-    @ManyToOne
-    @JoinColumn(name = "idClass")
+    @ManyToOne()
+    @JoinColumn(name = "id_class", referencedColumnName = "id")
     private ClassEntity classe;
 
-    public Long getIdTitle() {
-        return this.idTitle;
+    public Long getId() {
+        return this.id;
     }
 
-    public void setIdTitle(Long idTitle) {
-        this.idTitle = idTitle;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {

@@ -23,7 +23,7 @@ public class ActorAPIController extends AbstractAPIController<ActorModel,Long, A
     private Logger logger = Logger.getLogger(this.getClass().getName());
 
     @Override
-    @GetMapping
+    @GetMapping()
     @Operation(summary = "Find all actors", description = "Find all actors", tags = {"Actor"},
         responses = {
             //Response Success
@@ -94,7 +94,7 @@ public class ActorAPIController extends AbstractAPIController<ActorModel,Long, A
 
         if(model.getId() != null)
             model.setId(null);
-
+        System.out.println(model.getId());
         return new ResponseEntity<ActorModel>(this.service.create(model),HttpStatus.CREATED);
     }
 

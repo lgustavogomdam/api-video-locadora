@@ -13,14 +13,10 @@ public class ItemEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idItem;
+    private Long id;
 
     @Column(name = "numero_de_serie", length = 300, unique = true, nullable = false)
     private Integer numero_de_serie;
-
-    @ManyToOne
-    @JoinColumn ( name = "idTitle")
-    private TitleEntity titulo;
 
     @Column(name = "data_aquisicao")
     @Temporal(value = TemporalType.DATE)
@@ -29,8 +25,20 @@ public class ItemEntity implements Serializable {
     @Column(name = "tipo_item",length = 500, nullable = false)
     private String tipo_item;
 
+    @ManyToOne()
+    @JoinColumn ( name = "id_title", referencedColumnName = "id")
+    private TitleEntity titulo;
+
     public Integer getNumero_de_serie() {
         return numero_de_serie;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setNumero_de_serie(Integer numero_de_serie) {

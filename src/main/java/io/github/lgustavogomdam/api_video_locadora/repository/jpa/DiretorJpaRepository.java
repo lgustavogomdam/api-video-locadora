@@ -10,8 +10,8 @@ import java.util.List;
 
 @Repository
 public interface DiretorJpaRepository extends JpaRepository<DirectorEntity, Long>{
-    @Query("SELECT a FROM DirectorEntity a WHERE a.idDirector = :idDiretor")
-    DirectorEntity findFirstIn(@Param("idDiretor") Long idDiretor);
+    @Query("SELECT a FROM DirectorEntity a WHERE a.id = :id")
+    DirectorEntity findFirstIn(@Param("id") Long id);
 
     @Query("SELECT A FROM DirectorEntity A WHERE A.primeiroNome = :primeiroNomeDiretor AND A.ultimoNome = :ultimoNomeDiretor")
     List<DirectorEntity> findDiretorByPrimeiroNomeAndUltimoNome(@Param("primeiroNomeDiretor") String PrimeiroNomeDiretor,

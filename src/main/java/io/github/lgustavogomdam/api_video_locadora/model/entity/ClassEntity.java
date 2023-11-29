@@ -10,7 +10,7 @@ public class ClassEntity implements Serializable {
     private static final Long SerialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idClass;
+    private Long id;
     @Column(name = "nome", length = 50, nullable = false)
     private String nome;
     @Column(name = "valor", nullable = false)
@@ -28,11 +28,11 @@ public class ClassEntity implements Serializable {
     }
 
     public Long getid() {
-        return this.idClass;
+        return this.id;
     }
 
     public void setid(Long idClass) {
-        this.idClass = idClass;
+        this.id = idClass;
     }
 
     public String getNome() {

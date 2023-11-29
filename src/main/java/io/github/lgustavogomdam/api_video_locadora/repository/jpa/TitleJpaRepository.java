@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TitleJpaRepository extends JpaRepository<TitleEntity,Long> {
 
-    @Query("SELECT a FROM TitleEntity a WHERE a.idTitle = :idTitle")
-    TitleEntity findFirstIn(@Param("idTitle") Long idTitle);
+    @Query("SELECT a FROM TitleEntity a WHERE a.id = :id")
+    TitleEntity findFirstIn(@Param("id") Long id);
 }

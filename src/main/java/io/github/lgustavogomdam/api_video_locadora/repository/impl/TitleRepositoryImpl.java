@@ -18,8 +18,8 @@ public class TitleRepositoryImpl extends AbstractRepositoryImpl<TitleEntity,Long
     }
 
     @Override
-    public TitleModel findFirstIn(Long idTitle) {
-        TitleModel model = mapper.toModel(this.jpaRepository.findFirstIn(idTitle));
+    public TitleModel findFirstIn(Long id) {
+        TitleModel model = mapper.toModel(this.jpaRepository.findFirstIn(id));
         return model;
     }
 }
