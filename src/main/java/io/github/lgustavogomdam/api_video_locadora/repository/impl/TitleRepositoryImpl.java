@@ -10,6 +10,8 @@ import io.github.lgustavogomdam.api_video_locadora.repository.jpa.ItemJpaReposit
 import io.github.lgustavogomdam.api_video_locadora.repository.jpa.TitleJpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class TitleRepositoryImpl extends AbstractRepositoryImpl<TitleEntity,Long, TitleModel, TitleMapper, TitleJpaRepository> implements TitleRepository {
 
@@ -21,5 +23,12 @@ public class TitleRepositoryImpl extends AbstractRepositoryImpl<TitleEntity,Long
     public TitleModel findFirstIn(Long id) {
         TitleModel model = mapper.toModel(this.jpaRepository.findFirstIn(id));
         return model;
+    }
+
+
+    @Override
+    public List<TitleModel> findByTerm(String searchTerm){
+        List<TitleModel> modelList = mapper.toModelList(jpaRepository.findByTerm(searchTerm));
+        return modelList;
     }
 }

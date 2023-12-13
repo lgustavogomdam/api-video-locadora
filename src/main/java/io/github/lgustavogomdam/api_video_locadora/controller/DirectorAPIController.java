@@ -18,6 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/director")
+@CrossOrigin(origins = "http://localhost:4200")
 @Tag(name = "Director", description = "Endpoints for managing Director")
 public class DirectorAPIController extends AbstractAPIController<DirectorModel,Long, DirectorService>{
 

@@ -20,6 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/item")
+@CrossOrigin(origins = "http://localhost:4200")
 @Tag(name = "Item", description = "Endpoints for managing Item")
 public class ItemAPIController extends AbstractAPIController<ItemModel,Long, ItemService> {
 

@@ -19,6 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/class")
+@CrossOrigin(origins = "http://localhost:4200")
 @Tag(name = "Class", description = "Endpoints for managing Class")
 public class ClassAPIController extends AbstractAPIController<ClassModel,Long, ClassService>{
 

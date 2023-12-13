@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("api/actor")
+@CrossOrigin(origins = "http://localhost:4200")
 @Tag(name = "Actor", description = "Endpoints for managing Actor")
 public class ActorAPIController extends AbstractAPIController<ActorModel,Long, ActorService>{
 

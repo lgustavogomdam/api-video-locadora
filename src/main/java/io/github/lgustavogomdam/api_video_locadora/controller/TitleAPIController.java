@@ -18,6 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/title")
+@CrossOrigin(origins = "http://localhost:4200")
 public class TitleAPIController extends AbstractAPIController<TitleModel, Long, TitleService> {
 
     @Override
@@ -41,6 +42,31 @@ public class TitleAPIController extends AbstractAPIController<TitleModel, Long, 
             })
     public List<TitleModel> findAll() {
         return super.findAll();
+    }
+
+    @GetMapping("/findTitles/{searchTerm}")
+    @Operation(summary = "Find Titles", description = "Find Titles by name", tags = {"Title"},
+            responses = {
+                    //Response Success
+                    @ApiResponse(description = "Success", responseCode = "200", content = { @Content(mediaType = "application/json",schema = @Schema(implementation = TitleModel.class))}),
+
+                    //Response No Content
+                    @ApiResponse(description = "No Content", responseCode = "204", content = { @Content(mediaType = "application/json",schema = @Schema(implementation = TitleModel.class))}),
+
+                    //Response Bad Request
+                    @ApiResponse(description = "Bad Request", responseCode = "400", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = TitleModel.class))}),
+
+                    //Response Unauthorized
+                    @ApiResponse(description = "Unauthorized", responseCode = "401", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = TitleModel.class))}),
+
+                    //Response Not Found
+                    @ApiResponse(description = "Not Found", responseCode = "404", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = TitleModel.class))}),
+
+                    //Response Internal Error
+                    @ApiResponse(description = "Internal Error", responseCode = "500", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = TitleModel.class))})
+            })
+    public List<TitleModel> findByName(@PathVariable String searchTerm) {
+        return this.service.findByName(searchTerm);
     }
 
     @Override
@@ -118,8 +144,6 @@ public class TitleAPIController extends AbstractAPIController<TitleModel, Long, 
                     @ApiResponse(description = "Internal Error", responseCode = "500", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = TitleModel.class))})
             })
     public ResponseEntity<TitleModel> update(@RequestBody TitleModel model) {
-        if(model.getId() != null)
-            model.setId(null);
 
         return new ResponseEntity<TitleModel>(this.service.update(model), HttpStatus.CREATED);
     }
